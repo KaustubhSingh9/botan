@@ -5,7 +5,7 @@
 */
 
 #include <botan/asn1_print.h>
-
+#include <span>
 #include <botan/asn1_time.h>
 #include <botan/ber_dec.h>
 #include <botan/bigint.h>
@@ -75,15 +75,12 @@ bool possibly_a_general_name(const uint8_t bits[], size_t bits_len) {
 
 }  // namespace
 
-std::string ASN1_Formatter::print(const uint8_t in[], size_t len) const {
-   std::ostringstream output;
-   print_to_stream(output, in, len);
-   return output.str();
+std::string ASN1_Formatter::print(std::span<const uint8_t> in) const {
+   return this->print(in.data(), in.size());
 }
 
-void ASN1_Formatter::print_to_stream(std::ostream& output, const uint8_t in[], size_t len) const {
-   BER_Decoder dec(in, len);
-   decode(output, dec, 0);
+void ASN1_Formatter::print_to_stream(std::ostream& output, std::span<const uint8_t> in) const {
+   this->print_to_stream(output, in.data(), in.size());
 }
 
 void ASN1_Formatter::decode(std::ostream& output, BER_Decoder& decoder, size_t level) const {
