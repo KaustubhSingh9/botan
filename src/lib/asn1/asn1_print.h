@@ -33,12 +33,7 @@ class BOTAN_PUBLIC_API(2, 4) ASN1_Formatter /* NOLINT(*-special-member-functions
       ASN1_Formatter(bool print_context_specific, size_t max_depth) :
             m_print_context_specific(print_context_specific), m_max_depth(max_depth) {}
 
-      void print_to_stream(std::ostream& out, const uint8_t in[], size_t len) const;
-
       void print_to_stream(std::ostream& out, std::span<const uint8_t> in) const;
-
-      std::string print(const uint8_t in[], size_t len) const;
-
       std::string print(std::span<const uint8_t> in) const;
 
       template <typename Alloc>
