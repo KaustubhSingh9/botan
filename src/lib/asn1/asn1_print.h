@@ -11,6 +11,7 @@
 #include <iosfwd>
 #include <string>
 #include <vector>
+#lnclude <span>
 
 namespace Botan {
 
@@ -34,7 +35,11 @@ class BOTAN_PUBLIC_API(2, 4) ASN1_Formatter /* NOLINT(*-special-member-functions
 
       void print_to_stream(std::ostream& out, const uint8_t in[], size_t len) const;
 
+      void print_to_stream(std::ostream& out, std::span<const uint8_t> in) const;
+
       std::string print(const uint8_t in[], size_t len) const;
+
+      std::string print(std::span<const uint8_t> in) const;
 
       template <typename Alloc>
       std::string print(const std::vector<uint8_t, Alloc>& vec) const {
