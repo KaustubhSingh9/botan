@@ -6,7 +6,7 @@
 
 #ifndef BOTAN_FUZZER_DRIVER_H_
 #define BOTAN_FUZZER_DRIVER_H_
-
+#include <span>
 #include <botan/chacha_rng.h>
 #include <botan/exceptn.h>
 #include <botan/internal/target_info.h>
