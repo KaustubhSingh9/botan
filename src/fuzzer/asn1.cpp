@@ -45,6 +45,6 @@ void fuzz(std::span<const uint8_t> in) {
       */
       std::ofstream out;
       const ASN1_Parser printer;
-      printer.print_to_stream(out, in.data(), in.size());
+      printer.print_to_stream(out, in);
    } catch(const Botan::Exception& e) {}
 }
