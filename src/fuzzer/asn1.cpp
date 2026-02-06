@@ -5,7 +5,7 @@
 */
 
 #include "fuzzers.h"
-
+#include <span>
 #include <botan/asn1_print.h>
 #include <botan/assert.h>
 #include <fstream>
