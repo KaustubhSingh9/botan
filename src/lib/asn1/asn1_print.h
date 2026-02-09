@@ -11,9 +11,10 @@
 #include <iosfwd>
 #include <string>
 #include <vector>
-#lnclude <span>
+#include <span>
 
 namespace Botan {
+
 
 class BigInt;
 class BER_Decoder;
